@@ -16,9 +16,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2  # Action to checkout your repository code
 
-      - name: Navigate to terraform directory
-        run: cd terraform-config
-
       - name: Set up Terraform
         uses: hashicorp/setup-terraform@v1  # Action to set up Terraform CLI
         with:
