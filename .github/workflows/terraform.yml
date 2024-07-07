@@ -28,7 +28,6 @@ jobs:
         run: terraform plan -out=tfplan -input=false  # Generate Terraform plan
 
       - name: Apply Terraform
-        if: github.event_name == 'push'  # Only apply on push to main branch
         run: terraform apply -input=false tfplan  # Apply Terraform changes
 
       - name: Validate Terraform
