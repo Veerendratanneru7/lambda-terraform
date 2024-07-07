@@ -105,11 +105,11 @@ resource "aws_iam_role_policy_attachment" "lambda_policy_attachment" {
 
 # Lambda function for processing weather data
 resource "aws_lambda_function" "weather_lambda" {
-  filename         = "lambda_function.zip"
+  filename         = "${path.module}/../lambda-code/lambda_function.zip"
   function_name    = "weather_lambda"
   role             = aws_iam_role.lambda_exec.arn
   handler          = "lambda_function.lambda_handler"
-  source_code_hash = filebase64sha256("lambda_function.zip")
+  source_code_hash = filebase64sha256("${path.module}/../lambda-code/lambda_function.zip")
   runtime          = "python3.12"
 
   environment {
